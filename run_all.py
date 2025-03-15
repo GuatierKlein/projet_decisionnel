@@ -12,6 +12,7 @@ if not os.path.exists("data_all"):
 
 # Liste des scripts à exécuter dans l'ordre
 scripts = [
+    "geo_description", #description géo des données
     "fetch_data.py",  # Récupération des données via API
     "concat_data.py",  # Fusion des fichiers CSV
     "describe_missing_data.py",  # Analyse des valeurs manquantes
