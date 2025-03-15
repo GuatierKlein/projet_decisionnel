@@ -1,3 +1,6 @@
 requests
 panda
 os
+matplotlib
+seaborn
+re
