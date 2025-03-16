@@ -4,3 +4,4 @@ os
 matplotlib
 seaborn
 re
+numpy
