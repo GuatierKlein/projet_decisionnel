@@ -1,0 +1,19 @@
+CODE_BSS;main_soil_type;all_soil_types
+00471X0095/PZ2013;Marne;Marne, Calcaire, Grès, Sable, Gaize, Argile, Craie
+00487X0015/S1;Marne;Marne, Calcaire, Grès, Sable, Gaize, Argile, Craie
+00755X0006/S1;Marne;Marne, Grès, Calcaire, Silex, Argile, Craie, Sable, Calcaire argileux, Gaize
+00762X0004/S1;Marne;Calcaire, Grès, Argile, Marne, Sable, Calcaire argileux, Silex, Craie, Gaize
+00766X0004/S1;Marne;Calcaire, Grès, Argile, Marne, Sable, Calcaire argileux, Silex, Craie, Gaize
+01258X0020/S1;Marne;Argile, Grès, Calcaire, Marne, Sable, Calcaire argileux, Craie, Gaize, Silex
+01516X0004/S1;Marne;Argile, Grès, Calcaire, Marne, Sable, Calcaire argileux, Craie, Oolithe, Caillasse, Gaize
+01584X0023/LV3;Marne;Marne, Argile, Calcaire, Grès, Sable, Calcaire argileux, Oolithe, Caillasse, Dolomie, Craie, Schiste, Gaize
+02206X0022/S1;Calcaire;Argile, Grès, Dolomie, Marne, Calcaire, Sable, Craie, Calcaire argileux, Oolithe, Caillasse, Gaize, Lignite
+02267X0030/S1;Marne;Grès, Conglomérat, Lumachelle, Marne, Dolomie, Argile, Sable argileux, Calcaire, Sable, Calcaire argileux, Oolithe, Caillasse, Alluvions, Gaize, Roche ferrifère
+02603X0009/S1;Marne;Lumachelle, Marne, Dolomie, Argile, Sable argileux, Calcaire, Grès, Sable, Craie, Calcaire argileux, Oolithe, Caillasse, Gaize, Lignite
+02648X0020/S1;Marne;Grès, Conglomérat, Marne, Argile, Calcaire, Calcaire argileux, Oolithe, Caillasse, Dolomie
+02706X0074/S77-20;Grès;Grès
+03124X0088/F;Roche plutonique;Roche plutonique
+04398X0002/SONDAG;Calcaire;Calcaire
+06505X0080/FORC;Sable;Sable, Molasse, Calcaire
+07223C0113/S;Gravier;Gravier, Cailloutis, Sable, Molasse
+07476X0029/S;Molasse;Molasse, Alluvions
