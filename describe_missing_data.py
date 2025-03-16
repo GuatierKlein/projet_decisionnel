@@ -10,7 +10,7 @@ INPUT_FILE = "data_all/nappes_concatenees.csv"  # Fichier concaténé
 df = pd.read_csv(INPUT_FILE, sep=";", dtype=str)
 
 # Convertir les colonnes numériques
-numeric_cols = ["niveau_nappe_eau", "profondeur_nappe"]
+numeric_cols = ["niveau_nappe_eau"]
 for col in numeric_cols:
     df[col] = pd.to_numeric(df[col], errors='coerce')  # Convertir en nombre, forcer les erreurs en NaN
 
@@ -30,17 +30,17 @@ df_missing.to_csv("data_all/missing_data_analysis.csv", sep=";", index=False)  #
 
 
 # Visualisation des valeurs manquantes
-plt.figure(figsize=(12, 6))
-sns.heatmap(df.isna(), cbar=False, cmap="viridis", yticklabels=False)
-plt.title("Carte des valeurs manquantes")
-plt.show()
+# plt.figure(figsize=(12, 6))
+# sns.heatmap(df.isna(), cbar=False, cmap="viridis", yticklabels=False)
+# plt.title("Carte des valeurs manquantes")
+# plt.show()
 
-# Afficher les colonnes les plus touchées
-plt.figure(figsize=(10, 5))
-sns.barplot(y=df_missing["Colonne"], x=df_missing["% Manquant"], palette="coolwarm")
-plt.xlabel("% de valeurs manquantes")
-plt.ylabel("Colonnes")
-plt.title("Pourcentage de valeurs manquantes par colonne")
-plt.show()
+# # Afficher les colonnes les plus touchées
+# plt.figure(figsize=(10, 5))
+# sns.barplot(y=df_missing["Colonne"], x=df_missing["% Manquant"], palette="coolwarm")
+# plt.xlabel("% de valeurs manquantes")
+# plt.ylabel("Colonnes")
+# plt.title("Pourcentage de valeurs manquantes par colonne")
+# plt.show()
 
-print("Analyse des données manquantes terminée.")
+# print("Analyse des données manquantes terminée.")

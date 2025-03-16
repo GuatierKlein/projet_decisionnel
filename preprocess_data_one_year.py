@@ -15,18 +15,18 @@ OUTPUT_GRAPH_SMOOTHED = "graphs/average_level_over_one_year_normalized_smoothed.
 df = pd.read_csv(INPUT_FILE, sep=";", dtype=str)
 
 # Convertir la colonne timestamp_mesure en datetime
-if "timestamp_mesure" in df.columns:
-    df["timestamp_mesure"] = pd.to_datetime(df["timestamp_mesure"], errors="coerce")
+if "date_mesure" in df.columns:
+    df["date_mesure"] = pd.to_datetime(df["date_mesure"], errors="coerce")
 else:
-    raise ValueError("La colonne 'timestamp_mesure' est absente du fichier CSV.")
+    raise ValueError("La colonne 'date_mesure' est absente du fichier CSV.")
 
 # Convertir les colonnes numériques
 for col in df.columns:
-    if col != "timestamp_mesure":
+    if col != "date_mesure":
         df[col] = pd.to_numeric(df[col], errors='coerce')
 
 # Extraire le jour de l'année
-df["jour_annee"] = df["timestamp_mesure"].dt.dayofyear
+df["jour_annee"] = df["date_mesure"].dt.dayofyear
 
 # Calculer la moyenne par jour de l'année et par piézomètre
 df_annual = df.groupby(["jour_annee"]).mean()

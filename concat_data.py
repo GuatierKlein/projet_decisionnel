@@ -21,7 +21,7 @@ for file in csv_files:
     file_path = os.path.join(INPUT_DIR, file)
     try:
         df = pd.read_csv(file_path, sep=";", dtype=str)  # Charger en tant que chaînes pour éviter les erreurs
-        df["source_file"] = file  # Ajouter une colonne pour identifier la source des données
+        df = df[["code_bss", "date_mesure", "niveau_nappe_eau"]]  # Ne garder que les colonnes spécifiées
         df_list.append(df)
         print(f"Fichier chargé : {file}")
     except Exception as e: #en cas d'erreur, on abandonne la lecture du csv en quetion

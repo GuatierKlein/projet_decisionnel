@@ -14,14 +14,14 @@ OUTPUT_GRAPH_NO_MISSING = "graphs/level_over_time_no_missing.png"
 df = pd.read_csv(INPUT_FILE, sep=";", dtype=str)
 
 # Convertir la colonne timestamp_mesure en datetime
-if "timestamp_mesure" in df.columns:
-    df["timestamp_mesure"] = pd.to_datetime(df["timestamp_mesure"], errors="coerce")
+if "date_mesure" in df.columns:
+    df["date_mesure"] = pd.to_datetime(df["date_mesure"], errors="coerce")
 else:
-    raise ValueError("La colonne 'timestamp_mesure' est absente du fichier CSV.")
+    raise ValueError("La colonne 'date_mesure' est absente du fichier CSV.")
 
 # Convertir les colonnes numériques
 for col in df.columns:
-    if col != "timestamp_mesure":
+    if col != "date_mesure":
         df[col] = pd.to_numeric(df[col], errors='coerce')
 
 # Compter les valeurs manquantes avant interpolation
@@ -31,8 +31,8 @@ missing_counts_before = df.isna().sum()
 plt.figure(figsize=(25, 8))  # Augmentation de la taille du graphique
 colors = plt.cm.get_cmap("tab20", len(df.columns[1:]))
 
-for i, col in enumerate(df.columns[1:]):  # Ignorer timestamp_mesure
-    plt.plot(df["timestamp_mesure"], df[col], linestyle="-", alpha=0.7, label=col, color=colors(i % 20))
+for i, col in enumerate(df.columns[1:]):  # Ignorer date_mesure
+    plt.plot(df["date_mesure"], df[col], linestyle="-", alpha=0.7, label=col, color=colors(i % 20))
 
 plt.xlabel("Date")
 plt.ylabel("Niveau nappe")
@@ -43,7 +43,7 @@ plt.savefig(OUTPUT_GRAPH, dpi=300, bbox_inches='tight')
 plt.show()
 
 # Gestion des valeurs manquantes (Interpolation temporelle)
-df.set_index("timestamp_mesure", inplace=True)
+df.set_index("date_mesure", inplace=True)
 df = df.interpolate(method="spline", order=3)
 
 # Compter les valeurs interpolées après le traitement
@@ -72,7 +72,7 @@ plt.figure(figsize=(25, 8))
 colors = plt.cm.get_cmap("tab20", len(df.columns[1:]))
 
 for i, col in enumerate(df.columns[1:]):
-    plt.plot(df["timestamp_mesure"], df[col], linestyle="-", alpha=0.7, label=col, color=colors(i % 20))
+    plt.plot(df["date_mesure"], df[col], linestyle="-", alpha=0.7, label=col, color=colors(i % 20))
 
 plt.xlabel("Date")
 plt.ylabel("Niveau nappe")

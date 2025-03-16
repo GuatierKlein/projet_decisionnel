@@ -19,7 +19,7 @@ os.makedirs(GRAPH_DIR, exist_ok=True)
 df_nappes = pd.read_csv(INPUT_NAPPES, sep=";", dtype=str)
 
 # Garder uniquement les colonnes nécessaires
-df_nappes = df_nappes[["code_bss", "timestamp_mesure", "date_mesure", "niveau_nappe_eau"]]
+df_nappes = df_nappes[["code_bss", "date_mesure", "niveau_nappe_eau"]]
 
 # Convertir les types
 df_nappes["niveau_nappe_eau"] = pd.to_numeric(df_nappes["niveau_nappe_eau"], errors='coerce')
