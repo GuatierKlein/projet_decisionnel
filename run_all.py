@@ -24,7 +24,8 @@ scripts = [
     "analyse_pluvio",
     "analyse_puvio_clustering_knn",
     "analyse_pluvio_clustering_dbscan",
-    "analyse_geo"
+    "analyse_geo",
+    "analyse_pluvio_clustering_and_soil"
 ]
 
 for script in scripts:
