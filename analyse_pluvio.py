@@ -116,7 +116,7 @@ print("Graphique des corrélations sauvegardé dans graphs/correlation_precip.pn
 
 # Cross-correlation: Décalage temporel entre pluie et montée des nappes
 cross_correlation_results = []
-max_lag = 365  # Tester jusqu'à 365 jours de décalage futur
+max_lag = 370  # Tester jusqu'à 365 jours de décalage futur
 
 for station_id in df_final["code_bss"].unique():
     df_station = df_final[df_final["code_bss"] == station_id]

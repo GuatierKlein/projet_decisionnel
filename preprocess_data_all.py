@@ -40,7 +40,7 @@ plt.title("Évolution du niveau de la nappe pour tous les piézomètres avant tr
 plt.legend(loc="upper left", bbox_to_anchor=(1.05, 1), fontsize="small", frameon=True, ncol=3)
 plt.grid()
 plt.savefig(OUTPUT_GRAPH, dpi=300, bbox_inches='tight')
-plt.show()
+# plt.show()
 
 # Gestion des valeurs manquantes (Interpolation temporelle)
 df.set_index("date_mesure", inplace=True)
@@ -80,4 +80,4 @@ plt.title("Évolution du niveau de la nappe pour tous les piézomètres après t
 plt.legend(loc="upper left", bbox_to_anchor=(1.05, 1), fontsize="small", frameon=True, ncol=3)
 plt.grid()
 plt.savefig(OUTPUT_GRAPH_NO_MISSING, dpi=300, bbox_inches='tight')
-plt.show()
+# plt.show()

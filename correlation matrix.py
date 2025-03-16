@@ -28,6 +28,6 @@ plt.title("Matrice de corrélation des niveaux des nappes phréatiques")
 
 # Sauvegarder la figure
 plt.savefig(OUTPUT_FILE, dpi=300, bbox_inches='tight')
-plt.show()
+# plt.show()
 
 print(f"Matrice de corrélation enregistrée sous {OUTPUT_FILE}")

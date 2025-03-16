@@ -56,7 +56,7 @@ plt.title("Évolution moyenne du niveau de la nappe sur une année pour chaque p
 plt.legend(loc="upper left", bbox_to_anchor=(1.05, 1), fontsize="small", frameon=True, ncol=3)
 plt.grid()
 plt.savefig(OUTPUT_GRAPH, dpi=300, bbox_inches='tight')
-plt.show()
+# plt.show()
 
 
 # lissage des données avec une moyenne glissante 
@@ -83,5 +83,5 @@ plt.title("Évolution moyenne lissée du niveau de la nappe sur une année pour 
 plt.legend(loc="upper left", bbox_to_anchor=(1.05, 1), fontsize="small", frameon=True, ncol=3)
 plt.grid()
 plt.savefig(OUTPUT_GRAPH_SMOOTHED, dpi=300, bbox_inches='tight')
-plt.show()
+# plt.show()
 

@@ -24,8 +24,9 @@ scripts = [
     "preprocess_data_all.py", #traitement des données
     "preprocess_data_one_year.py", #traitement des données
     "correlation matrix.py", # correlations entre chaque pizometre sur une années
+    "get_pluvio.py",
     "analyse_pluvio.py",
-    "analyse_puvio_clustering_knn.py",
+    "analyse_pluvio_clustering_knn.py",
     "analyse_pluvio_clustering_dbscan.py",
     "analyse_geo.py",
     "analyse_pluvio_clustering_and_soil.py"
