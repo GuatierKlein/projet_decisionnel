@@ -1,0 +1,19 @@
+CODE_BSS;BSS_ID;LONGITUDE;LATITUDE;CODE_INSEE_COMMUNE;NOM_COMMUNE;CODE_STATION_HYDRO;NOM_STATION_HYDRO;CODE_BDLISA;NOM_ENTITE_BDLISA;Code Département;Nom Département
+00471X0095/PZ2013;BSS000EBLL;2.578405;50.023705;80733;SENLIS-LE-SEC;E6397010;L'Hallue à Bavelincourt;121BB01;Craie du Séno-Turonien du bassin versant de la Somme (bassin Artois-Picardie);80;Senlis-le-Sec
+00487X0015/S1;BSS000EECH;3.07279822338651;49.9035922409316;80413;HANCOURT;E6351408;Haute Somme à Ham;121BB01;Craie du Séno-Turonien du bassin versant de la Somme (bassin Artois-Picardie);80;Hancourt
+00755X0006/S1;BSS000FHCQ;0.419809838577633;49.5555270637694;76714;LES TROIS-PIERRES;G9103020;Lézarde à Montivilliers;121AU01;Craie du Séno-Turonien du Bassin Parisien de l'estuaire de la Seine (bassin Seine-Normandie);76;Les Trois-Pierres
+00762X0004/S1;BSS000FHYM;0.860993857091503;49.6497369721205;76456;MOTTEVILLE;H9923020;L'Austreberthe à Saint-Paer;121AU01;Craie du Séno-Turonien du Bassin Parisien de l'estuaire de la Seine (bassin Seine-Normandie);76;Motteville
+00766X0004/S1;BSS000FJMV;0.842289165223854;49.5709083249228;76099;BLACQUEVILLE;H9923020;L'Austreberthe à Saint-Paer;121AU30;Craie marneuse et marnes du Turonien inférieur du Bassin Parisien de l'estuaire de la Seine (bassin Seine-Normandie);76;Blacqueville
+01258X0020/S1;BSS000JRAR;1.7115841848038;49.19751702312;95119;BUHY;;;121AZ01;Craie du Séno-Turonien du Bassin Parisien du Vexin normand et picard - bassin versant de l'Andelle et de l'Epte (bassin Seine-Normandie);95;Buhy
+01516X0004/S1;BSS000LETA;1.61497845782586;48.9815660459082;78484;PERDREAUVILLE;;;121AZ01;Craie du Séno-Turonien du Bassin Parisien du Vexin normand et picard - bassin versant de l'Andelle et de l'Epte (bassin Seine-Normandie);78;Perdreauville
+01584X0023/LV3;BSS000LVDM;4.29305;49.066811;51278;LES GRANDES-LOGES;H5201010;La Marne à Châlons-sur-Marne;121AN01;Craie du Séno-Turonien du Bassin Parisien du bassin versant de la Marne (bassin Seine-Normandie);51;Les Grandes-Loges
+02206X0022/S1;BSS000RQYV;2.67987086692724;48.6099512023245;77306;MONTEREAU-SUR-LE-JARD;;;113AA01;Calcaire Ludien de l'Eocène sup. du Bassin Parisien;77;Montereau-sur-le-Jard
+02267X0030/S1;BSS000RYUY;4.87621228454102;48.6544293273127;52235;HALLIGNICOURT;H5091010;La Marne à Frignicourt;926AC07;Alluvions actuelles à anciennes du Perthois;52;Hallignicourt
+02603X0009/S1;BSS000UESL;3.43772162732678;48.5847966795416;77422;BEAUCHERY-ST-MARTIN;;;113AA03;Calcaire Ludien de l'Eocène sup. du Bassin Parisien en Brie à dominante karstique;;
+02648X0020/S1;BSS000UMRX;4.97314;48.471183;52510;VAUX-SUR-BLAISE;H5071040;La Marne à Chamouillet;131AA97;Calcaires du Tithonien inférieur du Bassin Parisien;52;Vaux-sur-Blaise
+02706X0074/S77-20;BSS000UTLD;6.9302772399532;48.4395463138954;88082;CELLES-SUR-PLAINE;;;143AK07;Grès d'Annweiler et Grès de Senones du Buntsandstein en Lorraine dans le bassin Rhône Méditerranée;88;Celles-sur-Plaine
+03124X0088/F;BSS000XFPD;-3.30717741173568;48.2312060880106;22266;ROSTRENEN;J5202110;Le Blavet à Kerien [Kerlouet];195AA03;Socle plutonique dans le bassin versant du Canal de Nantes à Brest jusqu'au Blavet (non inclus);22;Rostrenen
+04398X0002/SONDAG;BSS001EDAQ;5.32424152077325;47.5288404979028;21094;BOURBERAIN;;;139AO05;Calcaires jurassiques entre Ouche et Vingeanne;21;Bourberain
+06505X0080/FORC;BSS001REHG;4.76295450181247;46.1383028294756;69242;TAPONAS;;;507AD02;Sables pliocènes du Val de Saône;69;Taponas
+07223C0113/S;BSS001URLS;4.9003527411453;45.6473838620031;69273;CORBAS;;;521AK00;NV3 absent, nom de l'entité NV2 : Formations fluvio-glaciaires du couloir d'Heyrieux;69;Corbas
+07476X0029/S;BSS001VTUD;5.19017582950695;45.3650549559674;38300;PENOL;;;521AM00;NV3 absent, nom de l'entité NV2 : Alluvions fluvio-glaciaires de la plaine de Bièvre-Valloire;38;Penol

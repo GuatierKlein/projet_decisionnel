@@ -45,8 +45,15 @@ df_grouped = df_nappes.groupby(["date_mesure", "code_bss", "Code Département"],
 # Fusionner avec les précipitations par département et date
 df_final = df_grouped.merge(df_precip, left_on=["date_mesure", "Code Département"], right_on=["Date", "Code Département"], how="left")
 
-# Supprimer les lignes sans précipitations associées
-df_final = df_final.dropna(subset=["Précipitation Totale (mm)"])
+# Trouver la première et la dernière date avec précipitation enregistrée
+first_precip_date = df_final.loc[df_final["Précipitation Totale (mm)"].notna(), "date_mesure"].min()
+last_precip_date = df_final.loc[df_final["Précipitation Totale (mm)"].notna(), "date_mesure"].max()
+
+# Supprimer les lignes avant la première précipitation et après la dernière précipitation
+df_final = df_final[(df_final["date_mesure"] >= first_precip_date) & (df_final["date_mesure"] <= last_precip_date)]
+
+# Remplacer les valeurs NaN des précipitations par 0
+df_final["Précipitation Totale (mm)"] = df_final["Précipitation Totale (mm)"].fillna(0)
 
 # Supprimer la colonne en double "Date"
 df_final.drop(columns=["Date"], inplace=True)
