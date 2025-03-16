@@ -9,6 +9,7 @@ OUTPUT = "data_pluvio/nappes_precipitations.csv"
 INPUT_NAPPES = "data_all/nappes_concatenees.csv"
 INPUT_PLUVIO = "data_all/precipitation_by_departement.csv"
 INPUT_STATIONS = "points_eau.csv"
+INPUT_SOIL = "data_fixed/sol_principal_per_bss.csv"
 GRAPH_DIR = "graphs"
 
 # Créer le dossier pour les graphiques s'il n'existe pas
@@ -151,3 +152,23 @@ plt.savefig(os.path.join(GRAPH_DIR, "cross_correlation_precip.png"))
 plt.close()
 
 print("Graphique des cross-corrélations sauvegardé dans graphs/cross_correlation_precip.png")
+
+# Charger les données des sols
+df_soil = pd.read_csv(INPUT_SOIL, sep=";", dtype=str)
+df_final = df_cross_corr.merge(df_soil, left_on="Station", right_on="CODE_BSS", how="left")
+
+# Analyse de la moyenne du décalage par type de sol
+soil_lag_analysis = df_final.groupby("main_soil_type")["Décalage max (jours)"].mean().reset_index()
+
+# Visualisation
+plt.figure(figsize=(12, 6))
+sns.barplot(data=soil_lag_analysis, x="main_soil_type", y="Décalage max (jours)", palette="coolwarm")
+plt.xticks(rotation=90)
+plt.xlabel("Type de sol principal")
+plt.ylabel("Décalage moyen (jours)")
+plt.title("Moyenne du décalage max par type de sol")
+plt.tight_layout()
+plt.savefig(os.path.join(GRAPH_DIR, "soil_lag_analysis.png"))
+plt.close()
+
+print("Graphique de la moyenne du décalage max par type de sol sauvegardé dans graphs/soil_lag_analysis.png")

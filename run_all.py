@@ -23,7 +23,8 @@ scripts = [
     "correlation matrix", # correlations entre chaque pizometre sur une années
     "analyse_pluvio",
     "analyse_puvio_clustering_knn",
-    "analyse_pluvio_clustering_dbscan"
+    "analyse_pluvio_clustering_dbscan",
+    "analyse_geo"
 ]
 
 for script in scripts:
