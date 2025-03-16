@@ -7,10 +7,10 @@ if not os.path.exists("graphs"):
     os.makedirs("graphs")
 
 if not os.path.exists("data"):
+    download_data = True
     os.makedirs("data")
 
 if not os.path.exists("data_all"):
-    download_data = True
     os.makedirs("data_all")
 
 # Liste des scripts à exécuter dans l'ordre
