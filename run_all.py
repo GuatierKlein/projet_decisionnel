@@ -21,6 +21,8 @@ scripts = [
     "preprocess_data_all", #traitement des données
     "preprocess_data_one_year", #traitement des données
     "correlation matrix", # correlations entre chaque pizometre sur une années
+    "analyse_pluvio",
+    "analyse_puvio_clustering_knn"
 ]
 
 for script in scripts:
