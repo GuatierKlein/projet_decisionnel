@@ -21,7 +21,7 @@ df["LATITUDE"] = pd.to_numeric(df["LATITUDE"], errors='coerce')
 df["LONGITUDE"] = pd.to_numeric(df["LONGITUDE"], errors='coerce')
 
 # Extraire les coordonnées et les noms des stations
-stations_coords = df[["NOM_STATION_HYDRO", "LATITUDE", "LONGITUDE"]].dropna()
+stations_coords = df[["CODE_BSS", "LATITUDE", "LONGITUDE"]].dropna()
 
 # Inverser l'ordre des coordonnées si nécessaire (correction courante)
 gdf = gpd.GeoDataFrame(
@@ -42,7 +42,7 @@ gdf.plot(ax=ax, color="red", markersize=100, label="Stations")
 ctx.add_basemap(ax, source=ctx.providers.OpenStreetMap.Mapnik)
 
 # Ajouter les noms des stations
-for x, y, label in zip(gdf.geometry.x, gdf.geometry.y, gdf["NOM_STATION_HYDRO"]):
+for x, y, label in zip(gdf.geometry.x, gdf.geometry.y, gdf["CODE_BSS"]):
     ax.text(x, y, label, fontsize=10, ha="right", color="blue")
 
 ax.set_title("Localisation des Stations Hydrologiques en France")
