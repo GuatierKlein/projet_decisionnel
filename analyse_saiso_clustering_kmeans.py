@@ -135,7 +135,7 @@ ctx.add_basemap(ax, source=ctx.providers.OpenStreetMap.Mapnik)
 for x, y, label in zip(gdf.geometry.x, gdf.geometry.y, gdf["code_bss"]):
     ax.text(x, y, label, fontsize=10, ha="right", color="black")
 
-ax.set_title("Localisation des Stations Hydrologiques en France (Clusters)")
+ax.set_title("Clustering des Stations Hydrologiques en France sur les saisonnalités")
 plt.legend()
 # plt.show()
 plt.savefig(os.path.join(OUTPUT_MAP, "map_kmeans_saiso.png"))

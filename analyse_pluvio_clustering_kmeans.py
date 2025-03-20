@@ -2,15 +2,18 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-import numpy as np
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import silhouette_score
+import contextily as ctx
+from shapely.geometry import Point
+import geopandas as gpd
 
 # Définition des fichiers
 INPUT_CROSS_CORR = "data_pluvio/best_cross_correlation.csv"
 OUTPUT_CLUSTERING = "data_pluvio/clustering_kmeans_results.csv"
 GRAPH_DIR = "graphs"
+OUTPUT_MAP = "maps/"
 
 # Créer le dossier pour les graphiques s'il n'existe pas
 os.makedirs(GRAPH_DIR, exist_ok=True)
@@ -96,3 +99,51 @@ plt.title("Clustering des nappes en fonction du retard et de la corrélation aux
 plt.savefig(os.path.join(GRAPH_DIR, "clustering_kmeans_results.png"))
 plt.close()
 print("Graphique du clustering sauvegardé dans graphs/clustering_results.png")
+
+# affichage sur carte
+
+# Charger le fichier CSV d'entrée
+df_coords = pd.read_csv("points_eau.csv", sep=';', dtype=str)  # Charger toutes les colonnes en tant que chaînes
+
+# Convertir les coordonnées en float (gérer les éventuelles erreurs de parsing)
+df_coords["LATITUDE"] = pd.to_numeric(df_coords["LATITUDE"], errors='coerce')
+df_coords["LONGITUDE"] = pd.to_numeric(df_coords["LONGITUDE"], errors='coerce')
+
+# Extraire les coordonnées et les noms des stations
+df_cross_corr = df_cross_corr.merge(df_coords, "inner", left_on="station_id", right_on="CODE_BSS")
+stations_coords = df_cross_corr[["CODE_BSS", "LATITUDE", "LONGITUDE", "Cluster"]]
+
+# Définir une palette de couleurs pour les clusters
+palette = sns.color_palette("tab10", n_colors=len(df_cross_corr["Cluster"].unique()))
+colors = {cluster: palette[i] for i, cluster in enumerate(df_cross_corr["Cluster"].unique())}
+
+print(colors)
+
+# Inverser l'ordre des coordonnées si nécessaire (correction courante)
+gdf = gpd.GeoDataFrame(
+    stations_coords,
+    geometry=[Point(lon, lat) for lat, lon in zip(stations_coords["LATITUDE"], stations_coords["LONGITUDE"])],
+    crs="EPSG:4326"  # Vérifier que les coordonnées sont bien en WGS84
+)
+
+# Vérifier les premières lignes pour détecter une éventuelle inversion des colonnes
+print(gdf.head())
+
+# Convertir en projection Web Mercator pour OpenStreetMap
+gdf = gdf.to_crs(epsg=3857)
+
+# Tracer la carte avec OpenStreetMap
+fig, ax = plt.subplots(figsize=(8, 8))
+for cluster, data in gdf.groupby("Cluster"):
+    data.plot(ax=ax, color=colors[cluster], markersize=100, label=f"Cluster {cluster}")
+
+ctx.add_basemap(ax, source=ctx.providers.OpenStreetMap.Mapnik)
+
+# Ajouter les noms des stations
+for x, y, label in zip(gdf.geometry.x, gdf.geometry.y, gdf["CODE_BSS"]):
+    ax.text(x, y, label, fontsize=10, ha="right", color="black")
+
+ax.set_title("Clustering des Stations Hydrologiques en France sur la pluviométrie")
+plt.legend()
+# plt.show()
+plt.savefig(os.path.join(OUTPUT_MAP, "map_kmeans_pluvio.png"))
