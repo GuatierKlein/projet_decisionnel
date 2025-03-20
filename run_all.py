@@ -26,7 +26,7 @@ scripts = [
     "correlation matrix.py", # correlations entre chaque pizometre sur une années
     "merge_pluvio.py"
     "analyse_pluvio.py",
-    "analyse_pluvio_clustering_knn.py",
+    "analyse_pluvio_clustering_kmeans.py",
     "analyse_pluvio_clustering_dbscan.py",
     "analyse_geo.py",
     "analyse_pluvio_clustering_and_soil.py"
