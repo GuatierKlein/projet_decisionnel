@@ -8,7 +8,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import silhouette_score
 
 # Définition des fichiers
-INPUT_CROSS_CORR = "data_pluvio/cross_correlation_results.csv"
+INPUT_CROSS_CORR = "data_pluvio/best_cross_correlation.csv"
 OUTPUT_CLUSTERING = "data_pluvio/clustering_dbscan_results.csv"
 GRAPH_DIR = "graphs"
 
@@ -24,7 +24,7 @@ if df_cross_corr.empty:
     exit()
 
 # Préparer les données pour le clustering
-features = ["Décalage max (jours)", "Corrélation max"]
+features = ["best_lag", "best_corr"]
 df_features = df_cross_corr[features]
 
 # Normaliser les données
@@ -68,7 +68,7 @@ print(f"Résultats de clustering enregistrés dans {OUTPUT_CLUSTERING}")
 
 # Visualisation des clusters
 plt.figure(figsize=(10, 6))
-sns.scatterplot(data=df_cross_corr, x="Décalage max (jours)", y="Corrélation max", hue="Cluster", palette="tab10")
+sns.scatterplot(data=df_cross_corr, x="best_lag", y="best_corr", hue="Cluster", palette="tab10")
 plt.xlabel("Décalage max (jours)")
 plt.ylabel("Corrélation max")
 plt.title("Clustering DBSCAN des nappes en fonction du retard et de la corrélation aux précipitations")

@@ -18,7 +18,7 @@ df_cluster = pd.read_csv(INPUT_CLUSTERING, sep=";")
 df_soil = pd.read_csv(INPUT_SOIL, sep=";")
 
 # Fusionner les deux datasets sur CODE_BSS
-df_merged = df_cluster.merge(df_soil, left_on="Station", right_on="CODE_BSS", how="left")
+df_merged = df_cluster.merge(df_soil, left_on="station_id", right_on="CODE_BSS", how="left")
 
 # Étude du lien entre cluster et type de sol principal
 soil_cluster_analysis = df_merged.groupby("Cluster")["main_soil_type"].value_counts().unstack().fillna(0)
